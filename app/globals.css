@@ -1,26 +1,34 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("../styles/theme.css");
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+}
+
+@layer utilities {
+  .flex-center { @apply flex justify-center items-center; }
+  .flex-between { @apply flex justify-between items-center; }
+  .flex-start { @apply flex justify-start items-center; }
+
+  .card-wrapper {
+    @apply bg-light-900 dark:dark-gradient shadow-light-100 dark:shadow-dark-100 rounded-lg p-4;
+  }
+
+  .btn {
+    @apply bg-light-800 dark:bg-dark-300 px-4 py-2 rounded-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-light-800 dark:bg-dark-400 px-4 py-2 rounded-lg;
+  }
+
+  .btn-tertiary {
+    @apply bg-light-700 dark:bg-dark-300 px-4 py-2 rounded-lg;
+  }
+
+  .markdown {
+    @apply max-w-full prose prose-p:text-light-800 dark:prose-p:text-light-700;
+  }
 }
